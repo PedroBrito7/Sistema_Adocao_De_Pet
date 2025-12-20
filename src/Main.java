@@ -1,5 +1,3 @@
-import model.Pet;
-
 import java.util.Scanner;
 
 import repository.Menu;
