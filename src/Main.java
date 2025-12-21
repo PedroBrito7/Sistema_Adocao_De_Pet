@@ -1,11 +1,13 @@
 import java.util.Scanner;
 
 import repository.Menu;
-import repository.read;
+import repository.Read;
+
+import static repository.Read.imprimirPergunta;
+
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        read.imprimirPergunta();
         int option;
         do {
             Menu.exibirMenu();
@@ -13,6 +15,7 @@ public class Main {
             switch (option) {
                 case 1:
                     System.out.println("Cadastrar um novo pet");
+                    imprimirPergunta();
                     break;
                 case 2:
                     System.out.println("Alterar os dados do pet cadastrado");

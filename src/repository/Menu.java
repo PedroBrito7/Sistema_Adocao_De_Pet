@@ -19,7 +19,6 @@ public class Menu {
         while (true) {
             if (sc.hasNextInt()) {
                 int opcao = sc.nextInt();
-
                 if (opcao > 0 && opcao <= 6) {
                     return opcao;
                 } else {
@@ -30,7 +29,8 @@ public class Menu {
                 sc.next(); // limpa a entrada inválida
             }
 
-            exibirMenu();
+          exibirMenu();
+
         }
     }
 }

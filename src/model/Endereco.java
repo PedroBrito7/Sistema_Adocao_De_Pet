@@ -2,14 +2,12 @@ package model;
 
 public class Endereco {
     String rua;
-    String cidade;
-    String estado;
-    String cep;
+    String bairro;
 
-    public Endereco(String rua, String cidade, String estado) {
+    public Endereco(String rua, String bairro) {
         this.rua = rua;
-        this.cidade = cidade;
-        this.estado = estado;
+        this.bairro = bairro;
+
     }
 
     public String getRua() {
@@ -20,20 +18,14 @@ public class Endereco {
         this.rua = rua;
     }
 
-    public String getCidade() {
-        return cidade;
+    public String getBairro() {
+        return bairro;
     }
 
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
+    public void setBairro(String cidade) {
+        this.bairro = bairro;
     }
 
-    public String getEstado() {
-        return estado;
-    }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
 
 }

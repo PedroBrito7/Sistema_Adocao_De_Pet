@@ -4,9 +4,7 @@ public class Pet {
     public enum PetType {
         DOG,
         CAT,
-        BIRD,
-        FISH,
-        OTHER
+
     }
 
     public enum PetSex {
@@ -22,8 +20,7 @@ public class Pet {
     private PetSex sexo;
     private Endereco endereco;
 
-    public Pet(String nomeCompleto, String raca, double idade, double peso,
-               PetType tipo, PetSex sexo, Endereco endereco) {
+    public Pet() {
         this.nomeCompleto = nomeCompleto;
         this.raca = raca;
         this.idade = idade;

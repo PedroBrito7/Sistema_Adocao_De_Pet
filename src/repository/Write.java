@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class write {
+public class Write {
     public static void main(String[] args) {
         File file = new File("formulario.txt");
         try(FileWriter fw = new FileWriter(file,true);
