@@ -3,6 +3,8 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 .kotlin
+Sistema_Adocao_De_Pet.iml
+
 
 ### Eclipse ###
 .apt_generated
