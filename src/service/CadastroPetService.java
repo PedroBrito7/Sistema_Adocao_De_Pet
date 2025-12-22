@@ -1,26 +1,30 @@
 package service;
 
+import controller.Arquivo;
 import exception.PetInvalidoException;
+import model.Pet;
 import util.Constantes;
 
 public class CadastroPetService {
+    Arquivo arquivo = new Arquivo();
     public String validarNome(String nome) {
         if (nome == null || nome.trim().isEmpty()) {
             return Constantes.NAO_INFORMADO;
         }
 
-        if (!nome.matches("[A-Za-z ]+ ")) {
+        if (!nome.matches("[A-Za-z ]+")) {
             throw new PetInvalidoException(
                     "Nome do pet não pode conter números ou caracteres especiais."
             );
         }
 
-        if (!nome.contains(" ")) {
+        if (!nome.trim().contains(" ")) {
             throw new PetInvalidoException(
                     "O pet deve possuir nome e sobrenome."
             );
         }
-        return nome;
+
+        return nome.trim();
     }
 
 
@@ -58,18 +62,20 @@ public class CadastroPetService {
         return idade;
     }
 
-
-
-        public String validarRaca(String raca) {
-            if (raca == null || raca.trim().isEmpty()) {
-                return Constantes.NAO_INFORMADO;
-            }
-            if (!raca.matches("[A-Za-z]")) {
-                throw new PetInvalidoException(
-                        "Nome do pet não pode conter números ou caracteres especiais."
-                );
-            }
-            return raca;
+    public String validarRaca(String raca) {
+        if (raca == null || raca.trim().isEmpty()) {
+            return Constantes.NAO_INFORMADO;
         }
+
+        if (!raca.matches("[A-Za-z ]+")) {
+            throw new PetInvalidoException(
+                    "Raça não pode conter números ou caracteres especiais."
+            );
+        }
+
+        return raca.trim();
+    }
+
+
 }
 

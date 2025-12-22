@@ -1,13 +1,18 @@
-import java.util.Scanner;
+package view;
 
-import repository.Menu;
-import repository.Read;
+import controller.Arquivo;
+import model.Endereco;
+import model.Pet;
+
+import java.io.IOException;
+import java.util.Scanner;
 
 import static repository.Read.imprimirPergunta;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
+        Arquivo arquivo = new Arquivo();
         int option;
         do {
             Menu.exibirMenu();
@@ -15,7 +20,9 @@ public class Main {
             switch (option) {
                 case 1:
                     System.out.println("Cadastrar um novo pet");
-                    imprimirPergunta();
+                    Pet pet = imprimirPergunta();
+                    Endereco endereco = new Endereco();
+                    arquivo.salvar(pet, endereco);
                     break;
                 case 2:
                     System.out.println("Alterar os dados do pet cadastrado");
@@ -25,6 +32,7 @@ public class Main {
                     break;
                 case 4:
                     System.out.println("Listar todos os pets cadastrados");
+
                     break;
                 case 5:
                     System.out.println("Listar pets por algum critério (idade, nome, raça)");

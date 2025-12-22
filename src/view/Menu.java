@@ -1,4 +1,4 @@
-package repository;
+package view;
 
 import java.util.Scanner;
 
@@ -14,7 +14,6 @@ public class Menu {
         System.out.println("6 - Sair");
         System.out.print("Escolha uma opção: ");
     }
-
     public static int lerOpcao(Scanner sc) {
         while (true) {
             if (sc.hasNextInt()) {
@@ -30,6 +29,7 @@ public class Menu {
             }
 
           exibirMenu();
+
 
         }
     }
