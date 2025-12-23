@@ -1,0 +1,7 @@
+PANTERA HENRIQUE 
+DOG
+MALE
+null, null
+4.0
+30.0
+labrador

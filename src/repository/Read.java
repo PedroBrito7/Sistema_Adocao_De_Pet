@@ -57,10 +57,13 @@ public class Read {
                         System.out.println("Informe a rua:");
                         String rua = scanner.nextLine();
 
+                        System.out.println("Informe o numero:");
+                        String numero = scanner.nextLine();
+
                         System.out.println("Informe o bairro:");
                         String bairro = scanner.nextLine();
 
-                        Endereco endereco = new Endereco(rua, bairro);
+                        Endereco endereco = new Endereco(rua, bairro, numero);
                         pet.setEndereco(endereco);
                         break;
 
@@ -83,7 +86,9 @@ public class Read {
         } catch (IOException e) {
             System.out.println("Erro ao ler o formulário: " + e.getMessage());
         }
-
         return pet;
+
+
+
     }
 }

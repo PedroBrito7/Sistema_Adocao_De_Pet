@@ -2,45 +2,40 @@ package controller;
 
 import model.Endereco;
 import model.Pet;
-import util.FormatoDoFile;
+import util.FormatarNomeArquivo;
 
-import java.io.*;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.regex.Pattern;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Arquivo {
-    OutputStream os;
-    OutputStreamWriter osw;
-    BufferedWriter bw ;
-
-    public Arquivo(){
-        try {
-            // revisar, anotar, praticar
-            LocalDateTime agora = LocalDateTime.now();
-            os = new FileOutputStream("dasdas.txt",true);
-            osw = new OutputStreamWriter(os);
-            bw = new BufferedWriter(osw);
-        } catch (FileNotFoundException e) {
-            // throw new RuntimeException(e);
-            System.out.println("não encontrou o arquivo de texto");
+    private static final String DIRETORIO = "/home/pedro/Documents/Sistema_Adocao_De_Pet/petsCadastrados/";
+    public void salvar(Pet pet, Endereco endereco) throws IOException {
+        File arquivoBase = new File(DIRETORIO + "formulario.txt");
+        if(!arquivoBase.exists()){
+            arquivoBase.createNewFile();
         }
-    }
-    public void salvar (Pet pet, Endereco endereco) throws IOException {
-        String objeto = pet.getNomeCompleto().toUpperCase()+ "\n"
-                + pet.getTipo() + "\n"
-                + pet.getSexo() + "\n"
-                + endereco.getRua()+ ", " + endereco.getBairro()+"\n"
-                 + pet.getIdade()+ "\n"
-                + pet.getPeso()+ "\n"
-                + pet.getRaca();
-    bw.append(objeto);
-    bw.newLine();
-    bw.close();
-    osw.close();
-    os.close();
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(arquivoBase))) {
+            String conteudo =
+                    pet.getNomeCompleto().toUpperCase() + "\n" +
+                            pet.getTipo() + "\n" +
+                            pet.getSexo() + "\n" +
+                            endereco.getRua() + ", " + endereco.getBairro() + "\n" +
+                            pet.getIdade() + "\n" +
+                            pet.getPeso() + "\n" +
+                            pet.getRaca();
+
+            bw.write(conteudo);
+        }
+        String nomeArquivoFinal = FormatarNomeArquivo.gerarNomeArquivo(arquivoBase.getAbsolutePath());
+        File arquivoFinal = new File(DIRETORIO + nomeArquivoFinal);
+        boolean renomear = arquivoBase.renameTo(arquivoFinal);
+
+
+        if (!renomear) {
+            throw new IOException("Não foi possível renomear o arquivo");
+        }
     }
 
 }
-
-
