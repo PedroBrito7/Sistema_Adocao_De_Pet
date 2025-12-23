@@ -2,8 +2,11 @@ package controller;
 
 import model.Endereco;
 import model.Pet;
+import util.FormatoDoFile;
 
 import java.io.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.regex.Pattern;
 
 public class Arquivo {
@@ -13,7 +16,9 @@ public class Arquivo {
 
     public Arquivo(){
         try {
-            os = new FileOutputStream("^petCadastrados.txt",true);
+            // revisar, anotar, praticar
+            LocalDateTime agora = LocalDateTime.now();
+            os = new FileOutputStream("dasdas.txt",true);
             osw = new OutputStreamWriter(os);
             bw = new BufferedWriter(osw);
         } catch (FileNotFoundException e) {
@@ -22,7 +27,7 @@ public class Arquivo {
         }
     }
     public void salvar (Pet pet, Endereco endereco) throws IOException {
-        String objeto = pet.getNomeCompleto() + "\n"
+        String objeto = pet.getNomeCompleto().toUpperCase()+ "\n"
                 + pet.getTipo() + "\n"
                 + pet.getSexo() + "\n"
                 + endereco.getRua()+ ", " + endereco.getBairro()+"\n"
