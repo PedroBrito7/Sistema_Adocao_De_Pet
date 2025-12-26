@@ -6,3 +6,18 @@ Responsável por toda a comunicação com o sistema de arquivos (I/O).
 - **Escrita**: Criar os arquivos de pets com o nome formatado: `YYYYMMDDTHHMM-NOME.TXT`.
 - **Organização**: Garantir que os arquivos sejam salvos na pasta `/petsCadastrados`.
 - **Exclusão/Alteração**: Manipular os arquivos físicos quando solicitado.
+
+### busca pet repository 
+- **Responsabilidade:**
+
+- **acessar a pasta**
+
+- **listar arquivos**
+
+- **abrir arquivo**
+
+- **transformar em Pet**
+
+- **Pensa em algo como**:
+
+- **“Repository devolve Pets, não texto”**

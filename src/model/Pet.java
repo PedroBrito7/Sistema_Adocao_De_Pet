@@ -1,6 +1,10 @@
 package model;
 
 public class Pet {
+    public void setNome(String nome) {
+
+    }
+
     public enum PetType {
         DOG,
         CAT,
