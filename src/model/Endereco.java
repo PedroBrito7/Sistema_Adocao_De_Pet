@@ -5,22 +5,14 @@ public class Endereco {
     String bairro;
     String numero;
 
-    public Endereco(String rua, String numero, String bairro) {
+
+    public Endereco(String rua, String bairro, String numero) {
         this.rua = rua;
         this.bairro = bairro;
         this.numero = numero;
     }
+    public void endereco() {
 
-    public Endereco() {
-
-    }
-
-    public String getNumero() {
-        return numero;
-    }
-
-    public void setNumero(String numero) {
-        this.numero = numero;
     }
 
     public String getRua() {
@@ -35,10 +27,16 @@ public class Endereco {
         return bairro;
     }
 
-    public void setBairro(String cidade) {
+    public void setBairro(String bairro) {
         this.bairro = bairro;
     }
 
+    public String getNumero() {
+        return numero;
+    }
 
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
 
 }

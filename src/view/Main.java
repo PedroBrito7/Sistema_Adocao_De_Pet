@@ -21,8 +21,7 @@ public class Main {
                 case 1:
                     System.out.println("Cadastrar um novo pet");
                     Pet pet = imprimirPergunta();
-                    Endereco endereco = new Endereco();
-                    arquivo.salvar(pet, endereco);
+                    arquivo.salvar(pet);
                     break;
                 case 2:
                     System.out.println("Alterar os dados do pet cadastrado");
@@ -36,6 +35,7 @@ public class Main {
                     break;
                 case 5:
                     System.out.println("Listar pets por algum critério (idade, nome, raça)");
+
                     break;
                 case 6:
                     System.out.println("Sair");

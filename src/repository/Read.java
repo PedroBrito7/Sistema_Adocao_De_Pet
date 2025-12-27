@@ -57,11 +57,11 @@ public class Read {
                         System.out.println("Informe a rua:");
                         String rua = scanner.nextLine();
 
-                        System.out.println("Informe o numero:");
-                        String numero = scanner.nextLine();
-
                         System.out.println("Informe o bairro:");
                         String bairro = scanner.nextLine();
+
+                        System.out.println("Informe o numero:");
+                        String numero = scanner.nextLine();
 
                         Endereco endereco = new Endereco(rua, bairro, numero);
                         pet.setEndereco(endereco);
@@ -89,6 +89,7 @@ public class Read {
         return pet;
 
 
-
     }
+
+
 }

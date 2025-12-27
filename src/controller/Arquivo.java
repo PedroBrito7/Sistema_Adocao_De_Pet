@@ -11,17 +11,18 @@ import java.io.IOException;
 
 public class Arquivo {
     private static final String DIRETORIO = "/home/pedro/Documents/Sistema_Adocao_De_Pet/petsCadastrados/";
-    public void salvar(Pet pet, Endereco endereco) throws IOException {
+    public void salvar(Pet pet) throws IOException {
         File arquivoBase = new File(DIRETORIO + "formulario.txt");
         if(!arquivoBase.exists()){
             arquivoBase.createNewFile();
         }
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(arquivoBase))) {
+            Endereco endereco = pet.getEndereco();
             String conteudo =
                     pet.getNomeCompleto().toUpperCase() + "\n" +
                             pet.getTipo() + "\n" +
                             pet.getSexo() + "\n" +
-                            endereco.getRua() + ", " + endereco.getBairro() + "\n" +
+                            endereco.getRua() + ", " + endereco.getNumero() + ", "+ endereco.getBairro() + "\n" +
                             pet.getIdade() + "\n" +
                             pet.getPeso() + "\n" +
                             pet.getRaca();
