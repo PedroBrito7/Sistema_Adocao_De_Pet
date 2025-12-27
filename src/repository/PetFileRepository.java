@@ -47,9 +47,7 @@ public class PetFileRepository {
         final String dir = "/home/pedro/Documents/Sistema_Adocao_De_Pet/petsCadastrados";
         File[] arquivos = dir.listfiles();
             for (File arquivo : arquivos) {
-              for (arquivo:){
 
-              }
             }
 
     }

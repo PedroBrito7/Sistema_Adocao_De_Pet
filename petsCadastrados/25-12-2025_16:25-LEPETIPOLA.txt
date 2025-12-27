@@ -1,0 +1,7 @@
+LEPETI POLA
+CAT
+FEMALE
+null, null
+12.0
+4.0
+siames
