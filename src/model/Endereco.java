@@ -6,7 +6,7 @@ public class Endereco {
     String numero;
 
 
-    public Endereco(String rua, String bairro, String numero) {
+    public Endereco() {
         this.rua = rua;
         this.bairro = bairro;
         this.numero = numero;

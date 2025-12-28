@@ -25,7 +25,7 @@ public class Menu {
                 }
             } else {
                 System.out.println("Entrada inválida! Digite apenas números.");
-                sc.next(); // limpa a entrada inválida
+                sc.next();
             }
 
           exibirMenu();

@@ -21,3 +21,7 @@ Responsável por toda a comunicação com o sistema de arquivos (I/O).
 - **Pensa em algo como**:
 
 - **“Repository devolve Pets, não texto”**
+
+### Leitor De Arquivo 
+- ** Responsabilidade:**
+- 

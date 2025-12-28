@@ -63,7 +63,7 @@ public class Read {
                         System.out.println("Informe o numero:");
                         String numero = scanner.nextLine();
 
-                        Endereco endereco = new Endereco(rua, bairro, numero);
+                        Endereco endereco = new Endereco();
                         pet.setEndereco(endereco);
                         break;
 
