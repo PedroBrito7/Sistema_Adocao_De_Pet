@@ -24,4 +24,4 @@ Responsável por toda a comunicação com o sistema de arquivos (I/O).
 
 ### Leitor De Arquivo 
 - ** Responsabilidade:**
-- 
+- transformar um pet em texto e vice versa

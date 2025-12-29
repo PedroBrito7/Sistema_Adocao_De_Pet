@@ -1,0 +1,7 @@
+PETER
+DOG
+MALE
+city, 123, new york
+13.0
+20.0
+aranha

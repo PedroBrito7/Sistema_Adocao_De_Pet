@@ -1,0 +1,7 @@
+ANA JULIA
+DOG
+FEMALE
+null, null
+18.0
+20.0
+pinscher

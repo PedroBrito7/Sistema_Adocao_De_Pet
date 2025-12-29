@@ -1,0 +1,7 @@
+PASTELFRANGO
+CAT
+MALE
+null, , null, null
+5.0
+25.0
+labrador
