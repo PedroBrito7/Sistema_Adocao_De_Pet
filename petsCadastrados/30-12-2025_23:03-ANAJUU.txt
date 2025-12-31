@@ -1,0 +1,7 @@
+ANA JUU
+CAT
+FEMALE
+null, null, null
+18.0
+20.0
+Gato bonito
