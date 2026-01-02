@@ -1,6 +1,17 @@
 package model;
 
+import java.io.File;
+
 public class Pet {
+    private File arquivoOrigem; // 🔑 ponto-chave
+
+    public File getArquivoOrigem() {
+        return arquivoOrigem;
+    }
+
+    public void setArquivoOrigem(File arquivoOrigem) {
+        this.arquivoOrigem = arquivoOrigem;
+    }
     public void setNome(String nome) {
 
     }
@@ -18,8 +29,8 @@ public class Pet {
 
     private String nomeCompleto;
     private String raca;
-    private double idade;      // em anos (ex: 0.5)
-    private double peso;       // em kg
+    private int idade;
+    private double peso;
     private PetType tipo;
     private PetSex sexo;
     private Endereco endereco;
@@ -50,11 +61,11 @@ public class Pet {
         this.raca = raca;
     }
 
-    public double getIdade() {
+    public int getIdade() {
         return idade;
     }
 
-    public void setIdade(double idade) {
+    public void setIdade(int idade) {
         this.idade = idade;
     }
 

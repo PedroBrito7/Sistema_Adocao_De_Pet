@@ -27,23 +27,20 @@ public class BuscaPetRepository {
 
         if (arquivos == null) return resultado;
 
-        // 🔹 converte o tipo digitado UMA VEZ
         Pet.PetType tipoBuscado;
         try {
             tipoBuscado = Pet.PetType.valueOf(
                     TextoUtil.normalizar(String.valueOf(tipoAnimal)).toUpperCase()
             );
         } catch (IllegalArgumentException e) {
-            return resultado; // tipo inválido
+            return resultado;
         }
 
         for (File arquivo : arquivos) {
-
             List<Pet> pets = LeitorDeArquivo.lerArquivo(arquivo);
 
             for (Pet p : pets) {
 
-                // REGRA OBRIGATÓRIA: tipo
                 if (p.getTipo() != tipoBuscado) {
                     continue;
                 }

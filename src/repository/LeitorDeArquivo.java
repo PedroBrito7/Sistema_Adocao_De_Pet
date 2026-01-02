@@ -30,10 +30,17 @@ public class LeitorDeArquivo {
             }
 
             Pet pet = new Pet();
+
+            //  associação do arquivo ao Pet
+            pet.setArquivoOrigem(arquivo);
+
             pet.setNomeCompleto(linhas.get(0));
             pet.setTipo(Pet.PetType.valueOf(linhas.get(1)));
             pet.setSexo(Pet.PetSex.valueOf(linhas.get(2)));
-            pet.setEndereco(new Endereco());
+
+            Endereco endereco = new Endereco();
+            pet.setEndereco(endereco);
+
             pet.setIdade((int) Double.parseDouble(linhas.get(4)));
             pet.setPeso(Double.parseDouble(linhas.get(5)));
             pet.setRaca(linhas.get(6));

@@ -68,7 +68,7 @@ public class Read {
                         break;
 
                     case 5:
-                        pet.setIdade(service.validarIdade(resposta));
+                        pet.setIdade((int) service.validarIdade(resposta));
                         break;
 
                     case 6:
@@ -90,6 +90,77 @@ public class Read {
 
 
     }
+    public static Pet imprimirPerguntaRenomear() {
+
+        File file = new File("formulario.txt");
+        Scanner scanner = new Scanner(System.in);
+        Pet pet = new Pet();
+        CadastroPetService service = new CadastroPetService();
+
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+
+            String linha;
+            int indice = 1;
+
+            while ((linha = br.readLine()) != null) {
+
+                System.out.println(linha);
+                String resposta = scanner.nextLine();
+
+                switch (indice) {
+
+                    case 1:
+                        pet.setNomeCompleto(resposta);
+                        break;
+
+                    case 2:
 
 
-}
+                        break;
+
+                    case 3:
+
+
+                        break;
+
+                    case 4:
+                        System.out.println("Informe a rua:");
+                        String rua = scanner.nextLine();
+
+                        System.out.println("Informe o bairro:");
+                        String bairro = scanner.nextLine();
+
+                        System.out.println("Informe o numero:");
+                        String numero = scanner.nextLine();
+
+                        Endereco endereco = new Endereco();
+                        endereco.setRua(rua);
+                        endereco.setBairro(bairro);
+                        endereco.setNumero(numero);
+
+                        pet.setEndereco(endereco);
+                        break;
+
+                    case 5:
+                        pet.setIdade((int) service.validarIdade(resposta));
+                        break;
+
+                    case 6:
+                        pet.setPeso(service.validarPeso(resposta));
+                        break;
+
+                    case 7:
+                        pet.setRaca(resposta);
+                        break;
+                }
+
+                indice++;
+            }
+
+        } catch (IOException e) {
+            System.out.println("Erro ao ler o formulário: " + e.getMessage());
+        }
+
+        return pet;
+    }
+    }

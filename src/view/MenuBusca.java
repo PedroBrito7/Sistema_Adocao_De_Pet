@@ -13,7 +13,6 @@ public class MenuBusca {
         System.out.println("4 - Raça");
         System.out.println("0 - Finalizar escolha");
     }
-
     public static int ler(Scanner sc) {
         while (!sc.hasNextInt()) {
             System.out.println("Digite um número válido.");
