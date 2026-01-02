@@ -1,0 +1,7 @@
+PANTERA DOIDA
+DOG
+MALE
+null, null, null
+10
+10.0
+labrador

@@ -1,0 +1,7 @@
+PANTERA BRITO
+DOG
+MALE
+null, null, null
+6
+20.0
+labrador

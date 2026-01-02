@@ -3,6 +3,7 @@ package repository;
 import model.Endereco;
 import model.Pet;
 import service.CadastroPetService;
+import util.TextoUtil;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -63,7 +64,7 @@ public class Read {
                         System.out.println("Informe o numero:");
                         String numero = scanner.nextLine();
 
-                        Endereco endereco = new Endereco();
+                        Endereco endereco = new Endereco(rua, bairro, numero);
                         pet.setEndereco(endereco);
                         break;
 
@@ -92,7 +93,7 @@ public class Read {
     }
     public static Pet imprimirPerguntaRenomear() {
 
-        File file = new File("formulario.txt");
+        File file = new File("formularioAlteracao.txt");
         Scanner scanner = new Scanner(System.in);
         Pet pet = new Pet();
         CadastroPetService service = new CadastroPetService();
@@ -114,42 +115,26 @@ public class Read {
                         break;
 
                     case 2:
+                        System.out.println("Informe endereço completo (rua, bairro, número):");
+                        String textoEndereco = scanner.nextLine();
 
-
+                        try {
+                            Endereco endereco = TextoUtil.parseEndereco(textoEndereco);
+                            pet.setEndereco(endereco);
+                        } catch (IllegalArgumentException e) {
+                            System.out.println(e.getMessage());
+                        }
                         break;
 
                     case 3:
-
-
-                        break;
-
-                    case 4:
-                        System.out.println("Informe a rua:");
-                        String rua = scanner.nextLine();
-
-                        System.out.println("Informe o bairro:");
-                        String bairro = scanner.nextLine();
-
-                        System.out.println("Informe o numero:");
-                        String numero = scanner.nextLine();
-
-                        Endereco endereco = new Endereco();
-                        endereco.setRua(rua);
-                        endereco.setBairro(bairro);
-                        endereco.setNumero(numero);
-
-                        pet.setEndereco(endereco);
-                        break;
-
-                    case 5:
                         pet.setIdade((int) service.validarIdade(resposta));
                         break;
 
-                    case 6:
+                    case 4:
                         pet.setPeso(service.validarPeso(resposta));
                         break;
 
-                    case 7:
+                    case 5:
                         pet.setRaca(resposta);
                         break;
                 }

@@ -3,7 +3,7 @@ package model;
 import java.io.File;
 
 public class Pet {
-    private File arquivoOrigem; // 🔑 ponto-chave
+    private File arquivoOrigem; // ponto-chave tipo um id
 
     public File getArquivoOrigem() {
         return arquivoOrigem;

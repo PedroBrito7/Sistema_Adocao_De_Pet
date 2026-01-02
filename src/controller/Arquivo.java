@@ -89,5 +89,21 @@ public class Arquivo {
     }
 
 
+    public void listarTodos() {
+        File diretorio = new File(DIRETORIO);
+        File[] arquivos = diretorio.listFiles();
+
+        if (arquivos != null) {
+            for (File arquivo : arquivos) {
+                if (arquivo.isFile()) {
+                    System.out.println("Arquivo: " + arquivo.getName());
+                }
+            }
+        } else {
+            System.out.println("O diretório está vazio ou não existe.");
+        }
+    }
+
+
 }
 

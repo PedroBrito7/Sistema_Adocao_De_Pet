@@ -1,5 +1,7 @@
 package util;
 
+import model.Endereco;
+
 import java.text.Normalizer;
 
 public class TextoUtil {
@@ -9,5 +11,22 @@ public class TextoUtil {
                 .normalize(texto, Normalizer.Form.NFD)
                 .replaceAll("\\p{InCombiningDiacriticalMarks}+", "")
                 .toLowerCase();
+    }
+    public static Endereco parseEndereco(String texto) {
+
+        String[] partes = texto.split(",");
+
+        if (partes.length != 3) {
+            throw new IllegalArgumentException(
+                    "Formato inválido. Use: rua, bairro, número"
+            );
+        }
+
+        Endereco endereco = new Endereco();
+        endereco.setRua(partes[0].trim());
+        endereco.setBairro(partes[1].trim());
+        endereco.setNumero(String.valueOf(Double.parseDouble(partes[2].trim())));
+
+        return endereco;
     }
 }

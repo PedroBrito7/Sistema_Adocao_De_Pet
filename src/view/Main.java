@@ -119,7 +119,7 @@ public class Main {
                             );
                         }
 
-                        // 2️⃣ Usuário escolhe qual pet alterar
+
                         System.out.print("Digite o número do pet que deseja alterar: ");
                         int opcao = sc.nextInt();
                         sc.nextLine();
@@ -133,6 +133,7 @@ public class Main {
                         Pet petSelecionado = encontrados.get(opcao - 1);
                         File arquivoAntigo = petSelecionado.getArquivoOrigem();
 
+
                         // ⃣ oleta apenas os novos dados
                         Pet petAlterado = Read.imprimirPerguntaRenomear();
 
@@ -143,17 +144,114 @@ public class Main {
 
 
                         Arquivo.salvarAlteracao(arquivoAntigo, petAlterado);
-
+                        arquivoAntigo.delete();
                         System.out.println("Dados alterados com sucesso.");
                         System.out.println("Pode buscar novamente para ver as alterações.");
                     }
-
                     break;
                 case 3:
                     System.out.println("Deletar um pet cadastrado");
+                    sc.nextLine();
+                    System.out.println("Para isso você irá selecionar o pet novamente na busca.");
+                    System.out.print("Tipo do animal (obrigatório): ");
+                    String tipoInput3 = sc.nextLine();
+                    Pet.PetType tipo3;
+                    try {
+                        tipo3 = Pet.PetType.valueOf(
+                                TextoUtil.normalizar(tipoInput3).toUpperCase()
+                        );
+                    } catch (IllegalArgumentException e) {
+                        System.out.println("Tipo inválido.");
+                        break;
+                    }
+
+                    String nome3 = null;
+                    Integer idade3 = null;
+                    Double peso3 = null;
+                    String raca3 = null;
+
+                    int criteriosEscolhidos3 = 0;
+
+                    while (criteriosEscolhidos3 < 2) {
+                        MenuBusca.exibir();
+                        int escolha = MenuBusca.ler(sc);
+                        sc.nextLine();
+
+                        if (escolha == 0) break;
+
+                        switch (escolha) {
+                            case 1:
+                                System.out.print("Digite o nome ou parte do nome: ");
+                                nome3 = sc.nextLine();
+                                criteriosEscolhidos3++;
+                                break;
+
+                            case 2:
+                                System.out.print("Digite a idade: ");
+                                idade3 = sc.nextInt();
+                                sc.nextLine();
+                                criteriosEscolhidos3++;
+                                break;
+
+                            case 3:
+                                System.out.print("Digite o peso: ");
+                                peso3 = sc.nextDouble();
+                                sc.nextLine();
+                                criteriosEscolhidos3++;
+                                break;
+
+                            case 4:
+                                System.out.print("Digite a raça: ");
+                                raca3 = sc.nextLine();
+                                criteriosEscolhidos3++;
+                                break;
+
+                            default:
+                                System.out.println("Opção inválida.");
+                        }
+                    }
+                    BuscaPetService serviceDelete = new BuscaPetService();
+                    List<Pet> encontrado= serviceDelete.buscar(tipo3, nome3, idade3, peso3, raca3);
+                    if (encontrado.isEmpty()) {
+                        System.out.println("Nenhum pet encontrado.");
+                    } else {
+
+                        // 1️⃣ Exibe a lista numerada
+                        for (int i = 0; i < encontrado.size(); i++) {
+                            Pet p = encontrado.get(i);
+                            System.out.println(
+                                    (i + 1) + ". " +
+                                            p.getNomeCompleto() + " - " +
+                                            p.getTipo() + " - " +
+                                            p.getSexo() + " - " +
+                                            p.getEndereco().getRua() + ", " +
+                                            p.getEndereco().getNumero() + " - " +
+                                            p.getEndereco().getBairro() + " - " +
+                                            p.getIdade() + " anos - " +
+                                            p.getPeso() + "kg - " +
+                                            p.getRaca()
+                            );
+                        }
+
+                        System.out.print("Digite o número do pet que deseja excluir: ");
+                        int opcao = sc.nextInt();
+                        sc.nextLine();
+
+                        if (opcao < 1 || opcao > encontrado.size()) {
+                            System.out.println("Opção inválida.");
+                            break;
+                        }
+                        Pet petSelecionado = encontrado.get(opcao - 1);
+                        File arquivoAntigo = petSelecionado.getArquivoOrigem();
+                        arquivoAntigo.delete();
+                        System.out.println("Dado Excluído com sucesso.");
+                        System.out.println("Pode buscar novamente para ver as alterações.");
+                    }
                     break;
                 case 4:
                     System.out.println("Listar todos os pets cadastrados");
+                    arquivo.listarTodos();
+
 
                     break;
                 case 5:
